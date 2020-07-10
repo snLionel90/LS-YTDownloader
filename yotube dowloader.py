@@ -48,7 +48,28 @@ def mycb ( total, recvd, ratio, rate, est): #funcion que muestra el porcentaje m
     pr.step(porcentaje-diferencia)
     diferencia= porcentaje
 
+def descargando(dwnld, vid): #funcvon que muestra el proceso de la descarga obtenida de las funciones descarga y verif_url
+    global diferencia
+    so = obtnener(dwnld,vid)
+    try:
+        so.download(quiet=True, callback=mycb)
+        messagebox.showinfo("DESCARGA FINALIZADA", "Descarga finalizada con exito")
 
+    except:
+        messagebox.showwarning("Error", "se ha producidio un error en la descarga")
+        pr.step(100)
+        entrada.delete(0,len(URLL.get()))
+    estado('normal')    
+    eti_porcentaje.config(text=" ")
+    diferencia=0
+    tamaño=0
+
+def descarga(dwnld): #funcion de descarga mediante la obtencion de los parametros de la funcion de verificar url   
+    vid = verif_url()
+    if vid != None:
+        estado('disabled')
+        t1 = threading.Thread(target=descargando, args= (dwnld,vid))
+        t1.start()
 
 def salir(): #funcion de salir de la aplicacion
     exit(0)
@@ -105,9 +126,9 @@ btn_salir.place(x=200,y=300)
 btn_limpia = Button(ventana,image = imgBotonLimpiar ,command=limpiar)# salir del programa, a la puta calle
 btn_limpia.place(x=480,y=110) 
 
-boton_descarga=Button(ventana, image = imgBoton_descargarV) #DESCARGAR VIDEO
+boton_descarga=Button(ventana, image = imgBoton_descargarV, command=lambda:descarga("vid")) #DESCARGAR VIDEO
 boton_descarga.place(x=380, y = 250)
-boton_audio=Button(ventana, image = imgBoton_descargarAud)#descargar solo el audio
+boton_audio=Button(ventana, image = imgBoton_descargarAud, command=lambda:descarga("aud"))#descargar solo el audio
 boton_audio.place(x=380, y=300)
 
 pr = progressbar = ttk.Progressbar(ventana) #barra de progreso
