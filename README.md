@@ -1,8 +1,9 @@
 # LS-YTDownloader
-<h1>download your favourite videos from internet!!</h1>
+<h2>download your favourite videos from internet!!</h2>
 
 <h1>Para hacer que funcione necesitaras los siguientes addons:</h1>
-
+ <ul><li>primero Descarge el repositorio o clonar en el IDE</li></ul>
+ 
 <h2>Para instalar la barra de progreso o progress bar:</h2>
 <ul>
   <li> py -m pip install progressbar2.</li>
