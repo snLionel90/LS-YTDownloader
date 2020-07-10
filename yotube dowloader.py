@@ -21,6 +21,34 @@ def verif_url(): #funcion que se encarga de recoger la URL del video
     except:
         messagebox.showwarning("Error","Direccion invalida o mal escrita")    
 
+def obtnener(c,v): #funcion que obtiene los parametros del fichero descargado
+    global tamaño
+    if c =="vid":
+        try:
+            s = v.getbest(preftype = "mp4")
+        except:
+            s= v.getbest()
+    else:
+        try:
+            s=v.getbestaudio(preftype="m4a")
+        except:
+            s= v.getbestaudio()
+    tamaño=s.get_filesize()
+    return s
+
+def estado(s): #estado de la descarga
+    boton_dir.config(state = s)
+    boton_descarga.config(state =s)
+    boton_audio.config(state = s)
+
+def mycb ( total, recvd, ratio, rate, est): #funcion que muestra el porcentaje mediante un progressbar
+    global diferencia
+    porcentaje = (recvd*100/tamaño)
+    eti_porcentaje.config(text = ((int (porcentaje),"%")))
+    pr.step(porcentaje-diferencia)
+    diferencia= porcentaje
+
+
 
 def salir(): #funcion de salir de la aplicacion
     exit(0)
