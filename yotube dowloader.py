@@ -6,6 +6,28 @@ import os
 import pafy
 import threading
 
+#funciones
+def directorio(): #funcionde elegir un directorio para la descarga
+    directorio = filedialog.askdirectory()
+    if directorio !="":
+        os.chdir(directorio)
+        directorio_actual.set(os.getcwd())
+
+def verif_url(): #funcion que se encarga de recoger la URL del video
+    try:
+        v = pafy.new(URLL.get())
+        print(v.title)
+        return v
+    except:
+        messagebox.showwarning("Error","Direccion invalida o mal escrita")    
+
+
+def salir(): #funcion de salir de la aplicacion
+    exit(0)
+
+def limpiar ():
+    entrada.delete(0,len(URLL.get()))
+
 #componentes de la ventana
 ventana = Tk()
 ventana.geometry("720x500") 
@@ -47,12 +69,12 @@ eti_porcentaje=Label(ventana,width=4)
 eti_porcentaje.place(x=398,y=380)
 
     #botones
-boton_dir=Button(ventana, image= imgBoton_select) #sleccionar directorio de descarga
+boton_dir=Button(ventana, image= imgBoton_select, command=directorio) #sleccionar directorio de descarga
 boton_dir.place(x=200, y = 250)
-btn_salir = Button(ventana,image = imgBoton_exit )# salir del programa, a la puta calle
+btn_salir = Button(ventana,image = imgBoton_exit ,command=salir)# salir del programa, a la puta calle
 btn_salir.place(x=200,y=300) 
 
-btn_limpia = Button(ventana,image = imgBotonLimpiar)# salir del programa, a la puta calle
+btn_limpia = Button(ventana,image = imgBotonLimpiar ,command=limpiar)# salir del programa, a la puta calle
 btn_limpia.place(x=480,y=110) 
 
 boton_descarga=Button(ventana, image = imgBoton_descargarV) #DESCARGAR VIDEO
