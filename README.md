@@ -6,7 +6,10 @@ Para ejecutar dicho script en Linux, abrir terminal y ejecutar el comando: For u
 <pre><code>bash installer.sh</code></pre>
 
 <h1>Para hacer que funcione necesitaras los siguientes addons:</h1>
- <ul><li>primero Descarge el repositorio o clonar en el IDE</li></ul>
+ <ul><li>primero Descarge el repositorio o clonar en el IDE</li>
+<li>git clone https://github.com/snLionel90/LS-YTDownloader.git</li>
+
+</ul>
  
 <h2>Para instalar la barra de progreso o progress bar:</h2>
 <ul>
