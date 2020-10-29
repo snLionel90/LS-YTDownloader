@@ -1,6 +1,10 @@
 # LS-YTDownloader
 <h2>download your favourite videos from internet!!</h2>
 
+Para ejecutar dicho script, abrir terminal y ejecutar el comando: For use the installer.sh Script, open terminal and launch this command:
+
+<pre><code>bash installer.sh</code></pre>
+
 <h1>Para hacer que funcione necesitaras los siguientes addons:</h1>
  <ul><li>primero Descarge el repositorio o clonar en el IDE</li></ul>
  
