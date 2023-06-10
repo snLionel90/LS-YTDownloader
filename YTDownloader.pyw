@@ -22,7 +22,7 @@ def verif_url(): #funcion que se encarga de recoger la URL del video
         print(v.title)
         return v
     except:
-        messagebox.showwarning("Error","Direccion invalida o mal escrita")    
+        messagebox.showwarning("Error","Direccion invalida o mal escrita, intentelo de nuevo")    
 
 def obtnener(c,v): #funcion que obtiene los parametros del fichero descargado
     global tamaño
